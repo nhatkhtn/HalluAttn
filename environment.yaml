@@ -1,0 +1,28 @@
+name: HalluAttn
+dependencies:
+  - python>=3.12
+  - poetry
+  - pip
+
+  # computing
+  - numpy
+  - scikit-learn
+  - transformers>=4.50.0
+  - torchvision
+  - sentencepiece
+
+  # utils
+  - python-dotenv
+  - yaml
+  - tqdm
+  - pycocotools
+
+  # dev utils
+  - wandb
+  - ipykernel
+  - ipywidgets
+
+  - pip:
+    - transformer_lens
+    - torch
+    - torchvision
