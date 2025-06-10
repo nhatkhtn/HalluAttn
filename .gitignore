@@ -1,6 +1,7 @@
 # User defined
 .env.secret
 .env.local
+poetry.lock
 outputs/
 wandb/
 .vscode/

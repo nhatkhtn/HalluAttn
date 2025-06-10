@@ -1,14 +1,30 @@
-[tool.poetry]
-name = "hallu_attn"
+[project]
+name = "hallu-attn"
 version = "0.1.0"
 description = ""
-authors = ["nhatkhtn"]
+authors = [
+    {name = "Your Name",email = "you@example.com"}
+]
 readme = "README.md"
 
-[tool.poetry.dependencies]
-python = "^3.12"
+# sentencepiece 0.2 does not support python 3.13 yet
 
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "transformer-lens (>=2.15.4,<3.0.0)",
+    "torch (>=2.7.1,<3.0.0)",
+    "torchvision (>=0.22.1,<0.23.0)",
+    "python-dotenv (>=1.1.0,<2.0.0)",
+    "pyyaml (>=6.0.2,<7.0.0)"
+]
+
+[tool.poetry]
+
+[tool.poetry.group.dev.dependencies]
+wandb = "^0.20.1"
+ipykernel = "^6.29.5"
+ipywidgets = "^8.1.7"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
