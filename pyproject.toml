@@ -27,6 +27,7 @@ wandb = "^0.20.1"
 ipykernel = "^6.29.5"
 ipywidgets = "^8.1.7"
 debugpy = "^1.8.14"
+jupyterlab = "^4.4.3"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
