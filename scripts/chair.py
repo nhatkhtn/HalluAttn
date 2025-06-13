@@ -462,7 +462,7 @@ if __name__ == '__main__':
     parser.add_argument("--caption_key", type=str, default="caption",
                         help="in each dict of cap_file, which key stores caption of the image.")
     
-    parser.add_argument("--cache", type=str, default="chair.pkl",
+    parser.add_argument("--cache", type=str, default="tmp/chair.pkl",
                         help="pre inited CHAIR evaluator object, for fast loading.")
     parser.add_argument("--coco_path", type=str, default=Path(envs["COCO_PATH"]) / "annotations",
                         help="only use for regenerating CHAIR evaluator object, will be ignored if uses cached evaluator.")
