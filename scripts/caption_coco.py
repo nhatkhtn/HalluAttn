@@ -15,6 +15,7 @@ from tqdm import tqdm
 
 from hallu_attn.utils import init_seeds
 import hallu_attn.constants as constants
+from hallu_attn.baselines.pai import pai_score_mod
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
@@ -124,6 +125,9 @@ def main(args, env_values):
     device = "cuda"
 
     processor, model = load_model(args.model)
+    
+    model.language_model.config._attn_implementation = "flex_attention"
+    
     coco_loader = create_coco_loader(Path(env_values["COCO_PATH"]), processor, batch_size=4)
 
     args.output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -139,6 +143,7 @@ def main(args, env_values):
             output_ids = model.generate(
                 **inputs,
                 max_new_tokens=args.max_new_tokens,
+                score_mod=pai_score_mod,
             )
         outputs = processor.batch_decode(output_ids, skip_special_tokens=True)
 
